@@ -1,4 +1,5 @@
 ActiveAdmin.register Pod do
+  permit_params :door_code
 
 
   # See permitted parameters documentation:
