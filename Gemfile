@@ -39,6 +39,10 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 
 gem 'bundler'
+gem 'stripe'
+
+gem "figaro"
+gem 'jquery-validation-rails'
 
 gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'devise', github: 'plataformatec/devise'

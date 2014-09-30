@@ -1,9 +1,9 @@
 class VisitsController < ApplicationController
+  protect_from_forgery with: :null_session
 
-  #->Prelang (scaffolding:rails/scope_to_user)
-  before_filter :require_user_signed_in, only: [:new, :edit, :create, :update, :destroy]
+  # before_filter :require_user_signed_in, only: [:new, :edit, :create, :update, :destroy]
 
-  before_action :set_visit, only: [:show, :edit, :update, :destroy]
+  # before_action :set_visit, only: [:show, :edit, :update, :destroy]
 
   # GET /visits
   # GET /visits.json
@@ -14,6 +14,7 @@ class VisitsController < ApplicationController
   # GET /visits/1
   # GET /visits/1.json
   def show
+    @code = Visit.find(params[:id]).pod.door_code
   end
 
   # GET /visits/new
@@ -29,15 +30,37 @@ class VisitsController < ApplicationController
   # POST /visits.json
   def create
     @visit = Visit.new(visit_params)
-    @visit.user = current_user
+    @visit.pod_id = Pod.last.id
+
+      # Amount in cents
+      @amount = 500
+      puts params[:stripeToken]
+
+      customer = Stripe::Customer.create(
+        :email => params[:email],
+        :card  => params[:stripeToken]
+      )
+
+      @visit.customer_id = customer.id
+
+      # charge = Stripe::Charge.create(
+      #   :customer    => customer.id,
+      #   :amount      => @amount,
+      #   :description => 'Rails Stripe customer',
+      #   :currency    => 'usd'
+      # )
+
+    # rescue Stripe::CardError => e
+    #   flash[:error] = e.message
+    #   redirect_to charges_path
+    # end
 
     respond_to do |format|
       if @visit.save
-        format.html { redirect_to @visit, notice: 'Visit was successfully created.' }
-        format.json { render :show, status: :created, location: @visit }
+        format.html { redirect_to @visit, notice: 'Enjoy your quiet time.' }
       else
-        format.html { render :new }
-        format.json { render json: @visit.errors, status: :unprocessable_entity }
+        # format.html { render :new }
+        # format.json { render json: @visit.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -74,6 +97,6 @@ class VisitsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def visit_params
-      params.require(:visit).permit(:user_id, :pod_id)
+      # params.require(:visit).permit(:user_id, :pod_id)
     end
 end

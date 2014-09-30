@@ -1,3 +1,43 @@
 // Place all the styles related to the Landings controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.header {
+	font-size: 55px;
+	border: 4px black solid;
+	width: 80%;
+	margin: 20px auto;
+}
+
+.block {
+	display: block !important;
+	margin: 75px auto;
+	width: 400px;
+	height: 100px;
+	font-size: 2em !important;
+	padding-top: 30px !important;
+}
+
+.center {
+	text-align: center;
+}
+
+.info {
+	font-size: 2.25em;
+	width: 90%;
+	margin: 100px auto;
+}
+
+.list {
+	margin-top: 20px;
+}
+
+.nav-btns {
+	margin-bottom: 20px !important;
+	height: 75px;
+	width: 300px;
+	display: inline-block !important;
+	padding: 15px !important;
+	font-size: 2.25em !important;
+}
+
