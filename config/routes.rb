@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   get 'rent', to: 'landings#rent'
   get 'terms', to: 'landings#terms'
   get 'ready', to: 'landings#ready'
+  get 'exit', to: 'visits#exit'
+  get 'end', to: 'visits#end'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

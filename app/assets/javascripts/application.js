@@ -17,5 +17,6 @@
 //= require jquery.validate
 //= require jquery.validate.additional-methods
 //= require card
+//= require visit
 
 //= require_tree .

@@ -17,3 +17,16 @@ and enter your pin.</li>
     <%= link_to "Next", info_path, class: "btn btn-success btn-lg nav-btns" %>
   </div>
 </div>
+
+<div class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content" style="margin-top: 300px;">
+      <div class="modal-header">
+        <h2 class="modal-title">This IsoPod is in use</h2>
+      </div>
+      <div class="modal-body center">
+        <%= link_to "Tap to sign in", exit_path(id: params[:id]), class: "btn btn-danger btn-lg nav-btns" %>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

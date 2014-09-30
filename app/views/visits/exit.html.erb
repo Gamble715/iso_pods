@@ -1,0 +1,8 @@
+<div class="center">
+	<h1>Access Your Session</h1>
+<%= form_for 'end', method:"GET", url: {action: "end"}, html: {class: "nifty_form"} do |f| %>
+		<%= f.hidden_field :id, :value => params[:id] %>
+		  <%= f.text_field :access %>
+	   <%= submit_tag "Sign Out", class: "btn btn-success btn-lg nav-btns" %>
+<% end %>
+</div>

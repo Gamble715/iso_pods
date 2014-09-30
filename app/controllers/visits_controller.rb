@@ -17,6 +17,31 @@ class VisitsController < ApplicationController
     @code = Visit.find(params[:id]).pod.door_code
   end
 
+  def exit
+
+  end
+
+  def end
+    visit = Visit.find(params[:end][:id])
+
+
+    begin_time = visit.created_at
+    end_time = Time.now
+    total_time = end_time - begin_time
+    minutes = total_time/60
+    hours = minutes/60
+    @hours = (minutes/60).round
+    @minutes = (minutes%60).round
+
+    @amount = (hours*2*10).round(2)
+
+    Stripe::Charge.create(
+        :amount => @amount*100, # incents
+        :currency => "usd",
+        :customer => visit.customer_id
+    )
+  end
+
   # GET /visits/new
   def new
     @visit = Visit.new
