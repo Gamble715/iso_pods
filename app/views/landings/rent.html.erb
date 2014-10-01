@@ -9,53 +9,45 @@
         <span class="payment-errors"></span>
 
         <div class="form-row">
-          <label>
-            <span>Card Number</span>
-            <input type="text" size="20" data-stripe="number" name="number" class="card-number"/>
+          <label class="col-sm-2 col-sm-offset-3 ">
+            Card Number
           </label>
+            <input type="text" size="20" data-stripe="number" name="number" class="card-number col-sm-3"/>
         </div>
 
         <div class="form-row">
-          <label>
-            <span>Name</span>
-            <input type="text" size="4" data-stripe="name" name="name"/>
+          <label class="col-sm-2 col-sm-offset-3 ">
+            Name
           </label>
+            <input type="text" size="4" data-stripe="name" name="name"class="col-sm-3"/>
         </div>
 
         <div class="form-row">
-          <label>
-            <span>CVC</span>
-            <input type="text" size="4" data-stripe="cvc" name="cvc" class="card-cvc"/>
+          <label class="col-sm-2 col-sm-offset-3 ">
+            Exp.Date
           </label>
+            <input placeholder="MM/YY" type="text" name="expiry" class="col-sm-3 card-expiry">
         </div>
 
         <div class="form-row">
-          <input placeholder="MM/YY" type="text" name="expiry" class="card-expiry">
+          <label class="col-sm-2 col-sm-offset-3 ">
+            CVC
+          </label>
+            <input type="text" size="4" data-stripe="cvc" name="cvc" class="col-sm-3 card-cvc"/>
+        </div>
+
+
+        <div class="form-row">
+            <label class="col-sm-2 col-sm-offset-3 ">
+              Email
+            </label>
+              <input placeholder="Email" type="text" class="col-sm-3" name="email">
         </div>
 
         <div class="form-row">
-          <input placeholder="Email" type="text" name="email">
+          <button type="submit" class="col-sm-6 col-sm-offset-3 btn btn-success btn-lg">Submit Payment</button>
         </div>
-
-        <button type="submit">Submit Payment</button>
       </form>
-
-
-<!--        <form action="/signup" method="post" id="payment-form">
-
-
-           <input placeholder="Card number" type="text" data-stripe="number" name="number" class="card-number">
-
-           <input placeholder="Full name" type="text" name="name" class="">
-
-           <input placeholder="MM/YY" type="text" name="expiry" class="card-expiry">
-
-           <input placeholder="CVC" type="text"  data-stripe="cvc" name="cvc" class="card-cvc">
-
-         <button type="submit" name="submit" class="btn btn-lg-success pay">
-           Rent IsoPod
-         </button>
-       </form> -->
    </div>
 </div>
 <script>

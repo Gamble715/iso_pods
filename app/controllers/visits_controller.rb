@@ -30,16 +30,19 @@ class VisitsController < ApplicationController
     total_time = end_time - begin_time
     minutes = total_time/60
     hours = minutes/60
-    @hours = (minutes/60).round
+    @hours = (minutes/60).to_i
     @minutes = (minutes%60).round
 
-    @amount = (hours*2*10).round(2)
+    @amount = (hours*2).round*10
+    cents = (@amount*100).round
+    puts cents
 
     Stripe::Charge.create(
-        :amount => @amount*100, # incents
+        :amount => cents, # incents
         :currency => "usd",
         :customer => visit.customer_id
     )
+
   end
 
   # GET /visits/new
