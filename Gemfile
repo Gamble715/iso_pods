@@ -43,6 +43,7 @@ gem 'stripe'
 
 gem "figaro"
 gem 'jquery-validation-rails'
+gem 'rails_12factor'
 
 gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'devise', github: 'plataformatec/devise'
