@@ -1,8 +1,8 @@
 <div class="center">
 	<h1>Access Your Session</h1>
-<%= form_for 'end', method:"GET", url: {action: "end"}, html: {class: "nifty_form"} do |f| %>
-		<%= f.hidden_field :id, :value => params[:id] %>
-		  <%= f.text_field :access %>
-	   <%= submit_tag "Sign Out", class: "btn btn-success btn-lg nav-btns" %>
-<% end %>
+	<%= form_for 'end', method:"GET", url: {action: "end"}, html: {class: "nifty_form"} do |f| %>
+			<%= f.hidden_field :id, :value => params[:id] %>
+		  <%= f.text_field :access, placeholder: "Door Code", style: "height:50px;width:200px;font-size:2em;text-align:center;"%> <br>
+	    <%= submit_tag "Sign Out", class: "btn btn-success btn-lg nav-btns", style: "margin-top:20px;"%>
+	<% end %>
 </div>

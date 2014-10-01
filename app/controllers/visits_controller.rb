@@ -32,16 +32,26 @@ class VisitsController < ApplicationController
     hours = minutes/60
     @hours = (minutes/60).to_i
     @minutes = (minutes%60).round
+    if @minutes < 10
+      @minutes = sprintf '%02d', @minutes
+    end
 
-    @amount = (hours*2).round*10
-    cents = (@amount*100).round
-    puts cents
+    @amount = (hours*2)*10
 
-    Stripe::Charge.create(
-        :amount => cents, # incents
-        :currency => "usd",
-        :customer => visit.customer_id
-    )
+    if minutes%30 > 5
+      @amount+=10
+    end
+
+    cents = (@amount*100)
+
+    unless cents = 0
+      Stripe::Charge.create(
+          :amount => cents, # incents
+          :currency => "usd",
+          :customer => visit.customer_id
+      )
+      visit.destroy
+    end
 
   end
 

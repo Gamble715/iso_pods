@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   get 'rent', to: 'landings#rent'
   get 'terms', to: 'landings#terms'
   get 'ready', to: 'landings#ready'
+  get 'issue', to: 'landings#issue'
+  post 'issue', to: 'landings#submit'
   get 'exit', to: 'visits#exit'
   get 'end', to: 'visits#end'
 
