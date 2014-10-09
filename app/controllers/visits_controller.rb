@@ -75,7 +75,7 @@ class VisitsController < ApplicationController
       puts params[:stripeToken]
 
       customer = Stripe::Customer.create(
-        :email => params[:email],
+        :email => params[:email][0],
         :card  => params[:stripeToken]
       )
 
