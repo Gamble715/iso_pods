@@ -68,7 +68,7 @@ class VisitsController < ApplicationController
   # POST /visits.json
   def create
     @visit = Visit.new(visit_params)
-    pod = Pod.create
+    pod = Pod.create(door_code: 1234)
     @visit.pod_id = pod.id
 
       # Amount in cents
