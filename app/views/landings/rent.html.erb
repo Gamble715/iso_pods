@@ -3,14 +3,14 @@
  <div class="payment">
    <div class="card-wrapper"></div>
 
-   <div class="form-container active">
+   <div class="form-container active center">
 
     <!-- <form action=  "/visits" method="POST" id="payment-form"> -->
-      <%= form_tag("/visits", method: "Post", id: "payment-form") do %>
+      <%= form_tag("/visits", method: "Post") do %>
         <span class="payment-errors"></span>
 
         <div class="form-row">
-          <label class="col-sm-2 col-sm-offset-3 ">
+          <label class="col-sm-2 col-sm-offset-3 right">
             Card Number
           </label>
           <%= text_field_tag(:number, nil, class: "card-number col-sm-3", size: "20") %>
@@ -18,7 +18,7 @@
         </div>
 
         <div class="form-row">
-          <label class="col-sm-2 col-sm-offset-3 ">
+          <label class="col-sm-2 col-sm-offset-3 right">
             Name
           </label>
           <%= text_field_tag(:name, nil, class: "col-sm-3", size: "4") %>
@@ -26,7 +26,7 @@
         </div>
 
         <div class="form-row">
-          <label class="col-sm-2 col-sm-offset-3 ">
+          <label class="col-sm-2 col-sm-offset-3 right">
             Exp.Date
           </label>
           <%= text_field_tag(:expiry, nil, class: "card-expiry col-sm-3", placeholder: "MM/YY") %>
@@ -34,7 +34,7 @@
         </div>
 
         <div class="form-row">
-          <label class="col-sm-2 col-sm-offset-3 ">
+          <label class="col-sm-2 col-sm-offset-3 right">
             CVC
           </label>
           <%= text_field_tag(:cvc, nil, class: "card-cvc col-sm-3", size: "4") %>
@@ -43,7 +43,7 @@
 
 
         <div class="form-row">
-            <label class="col-sm-2 col-sm-offset-3 ">
+            <label class="col-sm-2 col-sm-offset-3 right">
               Email
             </label>
             <%= email_field(:email,nil, placeholder: "Email", class: "col-sm-3") %>
